@@ -87,3 +87,45 @@
   padding-left: 40px;
   padding-right: 40px;
 }
+
+.message-answer {
+  padding-left: 40px;
+  padding-right: 40px;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 2.5s steps(30, end);
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 80%;
+  }
+}
+
+.skeleton-loader {
+  background-color: #f6f7f8;
+  background-image: linear-gradient(
+    to right,
+    #f6f7f8 0%,
+    #e2e2e2 20%,
+    #f6f7f8 40%,
+    #f6f7f8 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 800px 104px;
+  display: inline-block;
+  position: relative;
+  animation: skeleton-loader 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-loader {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
