@@ -38,7 +38,6 @@ function Chat({ history }) {
                   strings: x.answer,
                   delay: 30,
                   autoStart: true,
-                  cursor: '|',
                 }}
               />
             )}

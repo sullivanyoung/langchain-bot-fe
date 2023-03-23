@@ -2,21 +2,38 @@ import './App.css';
 import Chat from './Chat';
 import { useState } from 'react';
 import axios from 'axios';
+import ErrorMessage from './ErrorMessage';
 
 function App() {
   const [question, setQuestion] = useState('');
   const [history, setHistory] = useState([]);
+  const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleKeyDown = async (event) => {
     if (event.key === 'Enter' && event.target.value) {
       setHistory([...history, { question, answer: '' }]);
+      setIsLoading(true);
 
       await axios
-        .post('http://localhost:5000/get-bot-response', { question })
+        .post(
+          'http://localhost:5000/get-bot-response',
+          { question },
+          { timeout: 20000 }
+        )
         .then((response) => {
           setHistory([...history, { question, answer: response.data.answer }]);
         })
-        .catch((error) => console.log(error));
+        .catch(() => {
+          setHistory([
+            ...history,
+            {
+              question,
+              answer: 'Sorry, there was an error processing your request',
+            },
+          ]);
+          setError(true);
+        });
 
       // setHistory([
       //   ...history,
@@ -28,6 +45,7 @@ function App() {
       // ]);
 
       document.getElementById('input-field').value = '';
+      setIsLoading(false);
     }
   };
 
@@ -39,17 +57,22 @@ function App() {
         </div>
       </aside>
       <section className="chatbox">
-        <Chat history={history} />
+        <Chat history={history} error={error} />
         <div className="chat-input-holder">
-          <input
-            id="input-field"
-            rows={1}
-            className="chat-input-text"
-            placeholder="Please Ask Your Benefits Question"
-            onChange={(event) => setQuestion(event.target.value)}
-            onKeyDown={handleKeyDown}
-            tabIndex={0}
-          ></input>
+          {!error ? (
+            <input
+              id="input-field"
+              disabled={isLoading ? true : false}
+              rows={1}
+              className="chat-input-text"
+              placeholder="Please Ask Your Benefits Question"
+              onChange={(event) => setQuestion(event.target.value)}
+              onKeyDown={handleKeyDown}
+              tabIndex={0}
+            ></input>
+          ) : (
+            <ErrorMessage />
+          )}
           <div className="more-info">
             For more information check out:{' '}
             <a
