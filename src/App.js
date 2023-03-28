@@ -1,6 +1,6 @@
 import './App.css';
 import Chat from './Chat';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import ErrorMessage from './ErrorMessage';
 
@@ -9,6 +9,16 @@ function App() {
   const [history, setHistory] = useState([]);
   const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  const messagesEndRef = useRef(null);
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [history]);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const handleKeyDown = async (event) => {
     if (event.key === 'Enter' && event.target.value) {
@@ -57,7 +67,10 @@ function App() {
         </div>
       </aside>
       <section className="chatbox">
-        <Chat history={history} error={error} />
+        <cdiv className="chat-history">
+          <Chat history={history} error={error} />
+          <div ref={messagesEndRef} />
+        </cdiv>
         <div className="chat-input-holder">
           {!error ? (
             <input

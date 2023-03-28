@@ -25,17 +25,37 @@
 }
 
 .chatbox {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
   background-color: #1b3a6e;
-  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.chat-history {
+  overflow: auto;
+}
+
+.chat-history::-webkit-scrollbar {
+  width: 5px;
+  background-color: #1b3a6e;
+}
+
+.chat-history::-webkit-scrollbar-thumb {
+  background-color: #4b4a4a;
+  border-radius: 5px;
 }
 
 .chat-input-holder {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 40%,
+    #1b3a6e 60%,
+    #1b3a6e 100%
+  );
   padding: 24px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  position: relative;
 }
 
 .chat-input-text {
