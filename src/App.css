@@ -30,10 +30,12 @@
   background-color: #1b3a6e;
   height: 100%;
   width: 100%;
+  position: relative;
 }
 
 .chat-history {
   overflow: auto;
+  margin-bottom: 125px;
 }
 
 .chat-history::-webkit-scrollbar {
@@ -55,7 +57,10 @@
     #1b3a6e 100%
   );
   padding: 24px;
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 
 .chat-input-text {
@@ -93,6 +98,7 @@
   width: 40px;
   height: 40px;
   flex-shrink: 0;
+  margin-right: 40px;
 }
 
 .message {

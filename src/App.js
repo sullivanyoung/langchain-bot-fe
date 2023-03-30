@@ -33,6 +33,11 @@ function App() {
         )
         .then((response) => {
           setHistory([...history, { question, answer: response.data.answer }]);
+
+          // to prevent users from asking questions in rapid succession
+          setTimeout(() => {
+            setIsLoading(false);
+          }, response.data.answer.length * 32);
         })
         .catch(() => {
           setHistory([
@@ -55,7 +60,6 @@ function App() {
       // ]);
 
       document.getElementById('input-field').value = '';
-      setIsLoading(false);
     }
   };
 
@@ -67,10 +71,10 @@ function App() {
         </div>
       </aside>
       <section className="chatbox">
-        <cdiv className="chat-history">
-          <Chat history={history} error={error} />
+        <div className="chat-history">
+          <Chat history={history} />
           <div ref={messagesEndRef} />
-        </cdiv>
+        </div>
         <div className="chat-input-holder">
           {!error ? (
             <input
