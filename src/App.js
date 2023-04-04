@@ -26,18 +26,17 @@ function App() {
       setIsLoading(true);
 
       await axios
-        .post(
-          'http://localhost:5000/get-bot-response',
-          { question },
+        .get(
+          `https://api.berri.ai/query?user_email=sullyyoung11@gmail.com&instance_id=f2e45396-2c21-4cf7-bfc7-4b3549a079ae&query=${question}`,
           { timeout: 20000 }
         )
-        .then((response) => {
-          setHistory([...history, { question, answer: response.data.answer }]);
+        .then((res) => {
+          setHistory([...history, { question, answer: res.data.response }]);
 
           // to prevent users from asking questions in rapid succession
           setTimeout(() => {
             setIsLoading(false);
-          }, response.data.answer.length * 32);
+          }, res.data.response.length * 32);
         })
         .catch(() => {
           setHistory([
