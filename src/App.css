@@ -10,26 +10,6 @@
   left: 0;
 }
 
-.sidemenu {
-  width: 200px;
-  padding: 10px;
-  background-color: #0f203d;
-}
-
-@media (max-width: 600px) {
-  .sidemenu {
-    display: none;
-  }
-}
-
-.side-menu-button {
-  padding: 12px;
-  border-radius: 5px;
-  text-align: center;
-  transition: ease 0.25s;
-  font-size: large;
-}
-
 .chatbox {
   display: flex;
   flex-direction: column;
@@ -140,4 +120,13 @@ a {
   border: 1px solid rgb(255, 0, 0);
   border-radius: 7.5px;
   text-align: center;
+}
+
+.welcome {
+  font-size: x-large;
+  margin-top: 400px;
+}
+
+.get-started {
+  font-size: medium;
 }

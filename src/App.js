@@ -64,13 +64,16 @@ function App() {
 
   return (
     <div className="App">
-      <aside className="sidemenu">
-        <div className="side-menu-button">
-          Welcome To CoStar's Benefits QA Bot
-        </div>
-      </aside>
       <section className="chatbox">
         <div className="chat-history">
+          {history.length === 0 && (
+            <div className="welcome">
+              Welcome To The CoStar Benefits QA Bot
+              <p className="get-started">
+                Please ask your benefits question below to get started
+              </p>
+            </div>
+          )}
           <Chat history={history} />
           <div ref={messagesEndRef} />
         </div>
@@ -81,7 +84,7 @@ function App() {
               disabled={isLoading ? true : false}
               rows={1}
               className="chat-input-text"
-              placeholder="Please Ask Your Benefits Question"
+              placeholder="Ask a question..."
               onChange={(event) => setQuestion(event.target.value)}
               onKeyDown={handleKeyDown}
               tabIndex={0}
