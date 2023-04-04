@@ -16,6 +16,12 @@
   background-color: #0f203d;
 }
 
+@media (max-width: 600px) {
+  .sidemenu {
+    display: none;
+  }
+}
+
 .side-menu-button {
   padding: 12px;
   border-radius: 5px;
