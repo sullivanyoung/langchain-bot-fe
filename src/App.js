@@ -64,16 +64,16 @@ function App() {
 
   return (
     <div className="App">
+      {history.length === 0 && (
+        <div className="welcome">
+          <h1>Welcome To The CoStar Benefits QA Bot</h1>
+          <p className="get-started">
+            Please ask your benefits question below to get started
+          </p>
+        </div>
+      )}
       <section className="chatbox">
         <div className="chat-history">
-          {history.length === 0 && (
-            <div className="welcome">
-              Welcome To The CoStar Benefits QA Bot
-              <p className="get-started">
-                Please ask your benefits question below to get started
-              </p>
-            </div>
-          )}
           <Chat history={history} />
           <div ref={messagesEndRef} />
         </div>
