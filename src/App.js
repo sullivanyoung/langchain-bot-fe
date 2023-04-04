@@ -36,6 +36,7 @@ function App() {
           // to prevent users from asking questions in rapid succession
           setTimeout(() => {
             setIsLoading(false);
+            document.getElementById('input-field').value = '';
           }, res.data.response.length * 32);
         })
         .catch(() => {
@@ -54,11 +55,10 @@ function App() {
       //   {
       //     question,
       //     answer:
-      //       'this is to simulate a really long message so that we can fix the svg issue that is current happening in the dom',
+      //       'this is to simulate a really long message so that we can test chat and css issues going on in our application',
       //   },
       // ]);
-
-      document.getElementById('input-field').value = '';
+      // setIsLoading(false);
     }
   };
 
