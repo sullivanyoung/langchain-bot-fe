@@ -33,6 +33,8 @@ function App() {
         .then((res) => {
           setHistory([...history, { question, answer: res.data.response }]);
 
+          console.log({ question, answer: res.data.response });
+
           // to prevent users from asking questions in rapid succession
           setTimeout(() => {
             setIsLoading(false);
@@ -59,6 +61,7 @@ function App() {
       //   },
       // ]);
       // setIsLoading(false);
+      // document.getElementById('input-field').value = '';
     }
   };
 
