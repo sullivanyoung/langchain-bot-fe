@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import TypewriterComponent from 'typewriter-effect';
+import Typewriter from 'typewriter-effect';
 import './App.css';
 
 function Chat({ history }) {
@@ -10,9 +10,9 @@ function Chat({ history }) {
     setFinished(true);
   }, []);
 
-  return history.map((x) => {
+  return history.map((x, i) => {
     return (
-      <div className="chat-log">
+      <div key={i} className="chat-log">
         <div className="chat-message">
           <div className="chat-message-center">
             <div className="avatar"></div>
@@ -33,7 +33,7 @@ function Chat({ history }) {
               </svg>
             </div>
             {finished && (
-              <TypewriterComponent
+              <Typewriter
                 options={{
                   strings: x.answer,
                   delay: 30,

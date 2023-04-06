@@ -39,6 +39,7 @@ function App() {
           setTimeout(() => {
             setIsLoading(false);
             document.getElementById('input-field').value = '';
+            document.querySelector('.Typewriter__cursor').remove();
           }, res.data.response.length * 32);
         })
         .catch(() => {
