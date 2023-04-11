@@ -27,7 +27,7 @@ function App() {
 
       await axios
         .get(
-          `https://api.berri.ai/query?user_email=sullyyoung11@gmail.com&instance_id=f2e45396-2c21-4cf7-bfc7-4b3549a079ae&query=${question}`,
+          `https://api.berri.ai/query?user_email=sullyyoung11@gmail.com&instance_id=7316a2a3-354d-4115-aeef-fa8026cfd751&query=${question}`,
           { timeout: 20000 }
         )
         .then((res) => {
@@ -58,7 +58,7 @@ function App() {
       //   {
       //     question,
       //     answer:
-      //       'this is to simulate a really long message so that we can test chat and css issues going on in our application',
+      //       'this is to simulate a really long message so that we can test chat and css issues going on in our application. but i need to make it even longer to test a scrolling issue we are experiencing',
       //   },
       // ]);
       // setIsLoading(false);
