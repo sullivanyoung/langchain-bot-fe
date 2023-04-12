@@ -27,7 +27,7 @@ function App() {
 
       await axios
         .get(
-          `https://api.berri.ai/query?user_email=sullyyoung11@gmail.com&instance_id=7316a2a3-354d-4115-aeef-fa8026cfd751&query=${question}`,
+          `https://api.berri.ai/query?user_email=pranesh.anand2001@gmail.com&instance_id=13f4baf2-9673-436d-b269-a719539dd2c4&query=${question}`,
           { timeout: 20000 }
         )
         .then((res) => {
