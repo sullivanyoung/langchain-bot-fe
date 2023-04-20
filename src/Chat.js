@@ -15,7 +15,19 @@ function Chat({ history }) {
       <div key={i} className="chat-log">
         <div className="chat-message">
           <div className="chat-message-center">
-            <div className="avatar"></div>
+            <div className="user-avatar">
+              <div className="user-avatar">
+                <svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
+                  <g fill="none" fillRule="evenodd">
+                    <path d="M0 0h24v24H0z" />
+                    <path
+                      fill="currentColor"
+                      d="M2 4.222v15.556C2 21 2.989 22 4.222 22h15.556C21 22 22 21 22 19.778V4.222C22 3 21 2 19.778 2H4.222C2.99 2 2 3 2 4.222Zm13.333 4.445A3.329 3.329 0 0 1 12 12a3.329 3.329 0 0 1-3.333-3.333A3.329 3.329 0 0 1 12 5.333a3.329 3.329 0 0 1 3.333 3.334Zm-10 8.889c0-2.223 4.445-3.445 6.667-3.445 2.222 0 6.667 1.222 6.667 3.445v1.11H5.333v-1.11Z"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </div>
             <div className="message">{x.question}</div>
           </div>
         </div>

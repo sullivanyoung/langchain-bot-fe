@@ -86,6 +86,14 @@
   margin-right: 40px;
 }
 
+.user-avatar {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  margin-right: 40px;
+}
+
 .message {
   padding-left: 30px;
   padding-right: 30px;
